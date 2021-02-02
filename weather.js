@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', (ev) => {
     fetch(url).then((response) => {
       if (response.status === 200) {
         response.json().then((data) => {
+          console.log(JSON.stringify(data));
           //let parag = document.createElement('P'); //delete this
           //parag.textContent = JSON.stringify(data); //delete this
           //infoDiv.appendChild(parag); // delete this
@@ -24,6 +25,7 @@ document.addEventListener('DOMContentLoaded', (ev) => {
                 console.log(JSON.stringify(data2));
                 infoDiv.textContent='';
                 let weatherTable=document.createElement('table');
+                let wtHeader=document.createElement('thead');
                 let titleRow=document.createElement('tr');
                 let dayTitle=document.createElement('td');
                 dayTitle.textContent=" Day ";
@@ -37,7 +39,8 @@ document.addEventListener('DOMContentLoaded', (ev) => {
                 let descTitle=document.createElement('td');
                 descTitle.textContent=" Description ";
                 titleRow.appendChild(descTitle);
-                weatherTable.appendChild(titleRow);
+                wtHeader.appendChild(titleRow);
+                weatherTable.appendChild(wtHeader);
                 for (let i = 0; i < data2.daily.length; i++ ) {
                   let row=document.createElement('tr');
                   let day = document.createElement('td');
@@ -66,7 +69,6 @@ document.addEventListener('DOMContentLoaded', (ev) => {
               alert(`Return code ${response2.status} ${response2.statusText}`);
             }
           }).catch((error) => {
-            alert(error); // remove this
             console.log(error);
           });
         });
@@ -76,7 +78,6 @@ document.addEventListener('DOMContentLoaded', (ev) => {
         alert(`Return code ${response.status} ${response.statusText}`);
       }
     }).catch((error) => {
-      alert(error); // remove this
       console.log(error);
     });
   });
