@@ -24,23 +24,21 @@ document.addEventListener('DOMContentLoaded', (ev) => {
                 //infoDiv.appendChild(parag2); // delete this
                 console.log(JSON.stringify(data2));
                 infoDiv.textContent='';
-                let weatherTable=document.createElement('table');
-                let wtHeader=document.createElement('thead');
+                let weatherTable=document.createElement('table')
                 let titleRow=document.createElement('tr');
-                let dayTitle=document.createElement('td');
+                let dayTitle=document.createElement('th');
                 dayTitle.textContent=" Day ";
                 titleRow.appendChild(dayTitle);
-                let minTitle=document.createElement('td');
+                let minTitle=document.createElement('th');
                 minTitle.textContent=" Minimum Temperature ";
                 titleRow.appendChild(minTitle);
-                let maxTitle=document.createElement('td');
+                let maxTitle=document.createElement('th');
                 maxTitle.textContent=" Maximum Temperature ";
                 titleRow.appendChild(maxTitle);
-                let descTitle=document.createElement('td');
+                let descTitle=document.createElement('th');
                 descTitle.textContent=" Description ";
                 titleRow.appendChild(descTitle);
-                wtHeader.appendChild(titleRow);
-                weatherTable.appendChild(wtHeader);
+                weatherTable.appendChild(titleRow);
                 for (let i = 0; i < data2.daily.length; i++ ) {
                   let row=document.createElement('tr');
                   let day = document.createElement('td');
